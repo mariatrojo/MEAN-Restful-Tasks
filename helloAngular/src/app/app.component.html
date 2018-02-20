@@ -1,20 +1,63 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    {{ title }}
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <!-- <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="> -->
+
+<!-- <h3>Value of num is: {{ num }} </h3>
+<h3>Value of randNum is: {{ randNum }}</h3>
+<h3>{{ str }}</h3>
+<input type="text" [value] = "first_name" />
+
+<p *ngIf="loggedIn">You are logged in!</p>
+<p *ngFor="let snack of snacks">{{ snack }}</p>
+<p *ngIf="snacks.length < 3">You need more snacks.</p> -->
+
+<!-- <h1>All the tasks:</h1> -->
+
+<form (submit)="onSubmit()">
+	<p> {{ newTask | json }} </p>
+	<input type="text" name="newTask.title" [(ngModel)]="newTask.title" />
+	<input type="text" name="newTask.description" [(ngModel)]="newTask.description" />
+	<input type="submit" value="Create Task" />
+</form>
+
+	<hr>
+
+<button (click)="onButtonClick()">Click to get all tasks</button>
+
+<div *ngIf="buttonClick">
+<p *ngFor='let task of tasks'>{{ task.title }} - {{ task.description }}
+<button (click) = "populateEditField(task)">Edit</button>	<button (click) = "onDeleteButtonClick(task._id)">Delete</button>
+</p>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
+<div *ngIf="editButtonClick">
+	<form (submit)="onEditButton()">
+		<input type="text" name="editTask.title" [(ngModel)]="editTask.title" />
+		<input type="text" name="editTask.description" [(ngModel)]="editTask.description" />
+		<input type="submit" value="Edit" />
+	</form>
+
+</div>
+
+
+
+<!-- <h1>The third task:</h1>
+<p *ngIf=tasks[2]>
+	{{ tasks[2].title }} - {{ tasks[2].description }}
+</p> -->
+
+<!-- <button (click)="onButtonClick()">Click me!</button>
+<button (click)="onButtonClickParam(5)">Click me!</button>
+<button (click)="onButtonClickParams(5, 'hello')">Click me!</button>
+<button (click)="onButtonClickEvent($event)">Click me!</button> -->
+
+</div>
+
+
+
+
+
 
